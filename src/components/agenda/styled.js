@@ -8,6 +8,7 @@ box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 height:150px;  
 width:auto;
 margin:20px 20px;
+border: solid 4px #e195a8;
 
 
 h4{
@@ -34,45 +35,50 @@ p{
 
 
 export const Horario = styled.div`
-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-display:flex;
-flex-direction: column;
-align-items: center;
-padding:20px;
-margin:20px 20px;
-height:150px;  
-width:auto;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  margin: 20px 20px;
+  height: 150px;
+  width: auto;
+  border: solid 4px #e195a8;
 
+  h4 {
+    font-size: 20px;
+  }
 
-h4{
-    font-size:20px;
-}
-
-ul{
-    display:flex;
+  ul {
+    display: flex;
     flex-direction: row;
-    gap:10px;
-    margin:10px;
+    gap: 10px;
+    margin: 10px;
 
-
-    li{
-         button{
-         font-size:15px;
-         font-weight: bold;
-         
-         border: 2px solid rgba(225, 149, 230, 0.9);
-         padding:9px 25px;;
-         border-radius:10px;
-         color:  rgba(225, 149, 230, 0.9);
-         &:hover{
-            background-color: rgba(225, 149, 230, 0.3);
-            cursor:pointer;
-         }   
-
-         }
+    /* Adicionar estilos específicos para telas menores que 900px */
+    @media (max-width: 900px) {
+      flex-wrap: wrap; /* Quebra em várias linhas */
+      justify-content: center; /* Centraliza os botões */
+      max-width: 300px; /* Define uma largura máxima para o contêiner */
+      overflow-x: auto; /* Adiciona uma barra de rolagem horizontal */
     }
-}
-`
+
+    li {
+      button {
+        font-size: 15px;
+        font-weight: bold;
+        border: 2px solid rgba(225, 149, 230, 0.9);
+        padding: 9px 25px;
+        border-radius: 10px;
+        color: rgba(225, 149, 230, 0.9);
+        &:hover {
+          background-color: rgba(225, 149, 230, 0.3);
+          cursor: pointer;
+        }
+      }
+    }
+  }
+`;
 
 export const Calendario = styled.div`
 box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
@@ -83,6 +89,7 @@ padding:20px;
 height:150px;  
 width:auto;
 margin:20px 20px;
+border: solid 4px #e195a8;
 
 h1{
     font-size:20px;

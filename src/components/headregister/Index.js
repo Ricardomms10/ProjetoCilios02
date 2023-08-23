@@ -8,7 +8,7 @@ const HeadRegister = () => (
         <Contend>
         <img alt={'Imagem de cilios'} src={Cilios}/> 
 
-        <a href="/">Inicio</a>
+        <a href="/">INICIO</a>
         </Contend>
     </>
 )

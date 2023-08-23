@@ -7,8 +7,8 @@ html{
 
   }
  body{
-  
-    background-color:#FFF;
+   
+    background-color:#fff;
  }
   *{
     margin: 0;

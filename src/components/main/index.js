@@ -1,23 +1,75 @@
 /* eslint-disable jsx-a11y/iframe-has-title */
 import Olho from "../../images/olho.png"
-import { ImgOlho, Principal, Maps, Text, Container, Servico, Apresenta } from "./styled"
+import { Boxbtn, ServicoBox, ImgOlho, Principal, Maps, Text, Container, Servico, Apresenta, Container2 } from "./styled"
 import { useNavigate } from "react-router-dom";
+import React, {useState} from "react";
 
 const Main = () => {
+
+    const Servicos = [
+        {
+            title: "Aplicação Clássico",
+            duration: "2h",
+            price: "R$ 130",
+        },
+        {
+            title: "Aplicação Brasileiro",
+            duration: "2h",
+            price: "R$ 170",
+        },
+        {
+            title: "Capping",
+            duration: "2h à 3h",
+            price: "R$ 200",
+        },
+        {
+            title: "Manutenção Clássico",
+            duration: "de 15 dias",
+            price: "R$ 70",
+        },
+        {
+            title: "Manutenção Clássico",
+            duration: "de 15 dias",
+            price: "R$ 90",
+        },
+        {
+            title: "Manunt. Brasileiro",
+            duration: "de 15 dias",
+            price: "R$ 85",
+        },
+        {
+            title: "Manunt. Brasileiro",
+            duration: "de 21 dias",
+            price: "R$ 100",
+        },
+    ];
 
     const navigate = useNavigate();
     const handleClick = () => {
         // eslint-disable-next-line no-restricted-globals
         const divElement = event.target.closest('div');
-        const trabalho =divElement.querySelector('h1').textContent;
+        const trabalho = divElement.querySelector('h1').textContent;
         const preco = divElement.querySelector('h3').textContent;
-      
-        
-        navigate(`/agenda/${trabalho}/${preco}`);
-      };
-   
 
-    
+
+        navigate(`/agenda/${trabalho}/${preco}`);
+    };
+
+    const [startIndex, setStartIndex] = useState(0);
+
+    const handleNext = () => {
+        if (startIndex < Servicos.length - 2) {
+            setStartIndex(startIndex + 2);
+        }
+    };
+
+    const handlePrevious = () => {
+        if (startIndex > 0) {
+            setStartIndex(startIndex - 2);
+        }
+    };
+
+
 
     return (
         <Container>
@@ -55,75 +107,37 @@ const Main = () => {
 
             </Apresenta>
 
-
-
-
-            <Text>
-                <h1>Todos os serviços</h1>
-
-
+            <Container2>
+                <Text>
+                    <h1>Todos os serviços</h1>
+                </Text>
                 <Servico>
-                    <div>
-                        <h1 >Aplicação Clássico </h1>
-                        <p>2h</p>
-                        <h3 >R$ 130</h3>
-           <button onClick={handleClick}>Agendar</button>
-                    </div>
-
-                    <div data-title="Aplicação Brasileiro" data-value="R$ 170">
-                        <h1> Aplicação Brasileiro </h1>
-                        <p>2h</p>
-                        <h3>R$ 170</h3>
-           <button onClick={handleClick}>Agendar</button>
-                    </div>
-
-                    <div>
-                        <h1> Capping </h1>
-                        <p> 2h à 3h </p>
-                        <h3> R$ 200</h3>
-
-           <button onClick={handleClick}>Agendar</button>
-                    </div>
-
-                    <div>
-                        <h1> Manutenção Clássico </h1>
-                        <p>de 15 dias</p>
-
-                        <h3> R$70</h3>
-
-           <button onClick={handleClick}>Agendar</button>
-                    </div>
-
-                    <div>
-                        <h1> Manutenção Clássico </h1>
-                        <p>de 15 dias</p>
-
-                        <h3> R$90 </h3>
-
-           <button onClick={handleClick}>Agendar</button>
-                    </div>
-
-                    <div>
-                        <h1> Manunt. Brasileiro </h1>
-                        <p>de 15 dias </p>
-
-                        <h3> R$ 85</h3>
-           <button onClick={handleClick}>Agendar</button>
-                    </div>
-
-                    <div>
-                        <h1> Manunt. Brasileiro </h1>
-                        <p>de 21 dias </p>
-
-                        <h3> R$ 100 </h3>
-
-           <button onClick={handleClick}>Agendar</button>
-                    </div>
+                    {Servicos.slice(startIndex, startIndex + 2).map((servico, index) => (
+                        <ServicoBox key={index}>
+                            <h1>{servico.title}</h1>
+                            <p>{servico.duration}</p>
+                            <h3>{servico.price}</h3>
+                            <button onClick={handleClick}>Agendar</button>
+                        </ServicoBox>
+                    ))}
                 </Servico>
 
+                <Boxbtn>
+                    <button onClick={handlePrevious} disabled={startIndex === 0}>
+                    <i class="fa-solid fa-angles-left"></i>
+                    </button>
+                    <button
+                        onClick={handleNext}
+                        disabled={startIndex >= Servicos.length - 2}
+                    >
+                        <i class="fa-solid fa-angles-right"></i>
+                    </button>
+                </Boxbtn>
+            </Container2>
+            ;
 
 
-            </Text>
+
 
             <div>
                 <Maps>

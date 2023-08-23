@@ -13,6 +13,8 @@ export const ImgOlho = styled.div`
 
 img{
     width: 100%;
+    max-width: 100vw;
+    height: auto;
     
 }
 `
@@ -59,6 +61,19 @@ ul{
     }
 }
 
+@media (max-width: 900px) {
+
+    span{
+        h2{
+            text-align: center;
+        }
+        p{
+            left:75px;
+            top:40px;
+        }
+    }
+
+}
 `
 
 export const Maps = styled.div`
@@ -71,86 +86,6 @@ height: 350px;
 }
 
 `
-export const Text = styled.div`
-display:flex;
-flex-direction: column;
-align-items: center;
-margin:20px;
-
-h1{
-    font-size: 30px;
-    font-weight: bold;
-    margin-bottom:30px;
-}
-
-`
-
-export const Servico = styled.div`
-display:flex;
-gap:10px;
-
-
-div{
-    
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-    width: 168px; 
-    height:  220px;
-    white-space: nowrap; 
-    overflow: hidden; 
-    text-overflow: ellipsis; 
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-    padding:1px;
-    position: relative;
-    background-color:#FFF;
-    
-   
-   
-
-    h1{
-        margin-top:10px;
-        font-size:16px;
-        font-family: 'Play', sans-serif;
-    }
-
-
-    h3{
-        position: absolute;
-       top: 70px;
-       font-size:15px;
-       
-       font-weight: bold;
-    }
-
-    p{
-       font-size:15px;
-       position: absolute;
-       top: 50px;
-       font-weight: bold;
-       color:#6d686e;
-    }
-
-    button{
-        position: absolute;
-        bottom: 10px;
-        padding:10px;
-        border-radius: 5px;
-        font-weight: bold;
-        font-family: 'Play', sans-serif;
-        font-size:15px;
-        background-color:#e195a8;
-        color:#FFF;
-
-        &:hover{
-            cursor: pointer;
-            background-color:#e195e6;
-        }
-    }
-}
-
-`
-
 export const Apresenta = styled.div`
 padding:20px 100px;
 
@@ -160,6 +95,107 @@ p{
     text-align: center;
     font-family: 'Play', sans-serif;
     font-size:25px;
+}
 
+@media (max-width: 900px) {
+    max-height: 300px; /* Define a altura máxima para o contêiner */
+    overflow-y: scroll; /* Adiciona uma barra de rolagem vertical */
+  }
+`
+
+
+export const Container2 = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const Text = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+
+  h1 {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 30px;
+  }
+`;
+
+export const Servico = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+`;
+
+export const ServicoBox = styled.div`
+   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+   width: calc(50% - 10px);
+   padding: 10px;
+   width: 168px; 
+   height:  220px;
+   white-space: nowrap; 
+   overflow: hidden; 
+   text-overflow: ellipsis; 
+   display:flex;
+   flex-direction: column;
+   align-items: center;
+   position: relative;
+   background-color:#FFF;
+   border: solid 4px #e195a8;
+
+
+  h1 {
+    font-size: 15px;
+    margin-top:10px;
+    font-family: 'Play', sans-serif;
+  }
+
+  h3 {
+    font-size: 18px;
+    font-weight: bold;
+    position: absolute;
+    top: 100px;
+  }
+
+  p {
+    font-size: 15px;
+    font-weight: bold;
+    color: #6d686e;
+    margin-top: 10px;
+  }
+
+  button {
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 15px;
+    background-color: #e195a8;
+    color: #fff;
+    position: absolute;
+    bottom: 10px;
+
+    &:hover {
+      cursor: pointer;
+      background-color: #e195e6;
+    }
+  }
+`;
+
+export const Boxbtn = styled.div`
+padding:10px; 
+
+
+
+button{
+    margin:10px;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 15px;
+    background-color: #e195a8;
+    color:#FFF;
+    cursor:pointer;
 }
 `
