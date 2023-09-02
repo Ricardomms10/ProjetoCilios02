@@ -1,28 +1,22 @@
 import { HeadRegister } from '../headregister/Index';
 import { useParams } from 'react-router-dom';
 import { Container, Horario, Calendario, Confirma, DivBtn } from "./styled";
-import React, { useState } from 'react';
+import React, { useState} from 'react';
+
 
 const Agenda = () => {
     const { trabalho, preco } = useParams();
     const [selectedDate, setSelectedDate] = useState('');
-    const [selectedTime, SetSelectedTime] = useState(' ');
     const [showConfirma, setShowConfirma] = useState(false);
 
-
-    
-
-
     const handleTimeSelection = (time) => {
-        SetSelectedTime(time);
         setShowConfirma(true);
-    }
+    };
 
     const handleDateChange = (event) => {
         setSelectedDate(event.target.value);
     };
 
-    
     const formatDate = (dateString) => {
         if (!dateString) {
             return '';
@@ -35,9 +29,12 @@ const Agenda = () => {
         return `${day}-${month}-${year}`;
     };
 
+    const confirmarHorario = () => {
+        alert("Horário confirmado!");
+    };
+
     return (
         <>
-
             <HeadRegister />
             <Container>
                 <h4>Serviço:</h4>
@@ -76,16 +73,14 @@ const Agenda = () => {
             {showConfirma && (
                 <Confirma>
                     <div>
-
                         <h2>Confirme o Agendamento:</h2>
                         <p>Serviço: {trabalho}</p>
                         <p>Preço: {preco}</p>
                         <p>Data: {formatDate(selectedDate)}</p>
-                        <p>Horario: {selectedTime}</p>
 
                         <DivBtn>
                             <button onClick={() => setShowConfirma(false)}>Cancelar</button>
-                            <button  > Confirmar </button>
+                            <button onClick={confirmarHorario}> Confirmar </button>
                         </DivBtn>
                     </div>
                 </Confirma>
@@ -95,3 +90,6 @@ const Agenda = () => {
 }
 
 export { Agenda };
+
+
+

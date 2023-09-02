@@ -1,3 +1,4 @@
+import React from "react"
 import Cilios from "../../images/cilios.png"
 import { Contend } from "./styled"
 

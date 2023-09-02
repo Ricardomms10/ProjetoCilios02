@@ -1,11 +1,21 @@
 /* eslint-disable jsx-a11y/iframe-has-title */
-import Olho from "../../images/olho.png"
-import { Boxbtn, ServicoBox, ImgOlho, Principal, Maps, Text, Container, Servico, Apresenta, Container2 } from "./styled"
+import Olho from "../../images/olho.png";
+import {
+    Boxbtn,
+    ServicoBox,
+    ImgOlho,
+    Principal,
+    Maps,
+    Text,
+    Container,
+    Servico,
+    Apresenta,
+    Container2,
+} from "./styled";
 import { useNavigate } from "react-router-dom";
-import React, {useState} from "react";
+import React, { useState } from "react";
 
 const Main = () => {
-
     const Servicos = [
         {
             title: "Aplicação Clássico",
@@ -45,14 +55,18 @@ const Main = () => {
     ];
 
     const navigate = useNavigate();
-    const handleClick = () => {
-        // eslint-disable-next-line no-restricted-globals
-        const divElement = event.target.closest('div');
-        const trabalho = divElement.querySelector('h1').textContent;
-        const preco = divElement.querySelector('h3').textContent;
 
+    const handleDivClick = (event: { currentTarget: any; }) => {
+        const divElement = event.currentTarget;
+        const trabalhoElement = divElement.querySelector("h1");
+        const precoElement = divElement.querySelector("h3");
 
-        navigate(`/agenda/${trabalho}/${preco}`);
+        if (trabalhoElement && precoElement) {
+            const trabalho = trabalhoElement.textContent;
+            const preco = precoElement.textContent;
+
+            navigate(`/agenda/${trabalho}/${preco}`);
+        }
     };
 
     const [startIndex, setStartIndex] = useState(0);
@@ -69,8 +83,6 @@ const Main = () => {
         }
     };
 
-
-
     return (
         <Container>
             <ImgOlho>
@@ -79,32 +91,33 @@ const Main = () => {
 
             <Principal>
                 <span>
-                    <p>Michele Crepaldi </p>
-                    <h2> Extencionista de Cilios </h2>
+                    <p>Michele Crepaldi</p>
+                    <h2>Extencionista de Cílios</h2>
                 </span>
 
                 <ul>
-                    <li>Lash Deseigner</li>
+                    <li>Lash Designer</li>
                     <li>Transformando Olhares</li>
-                    <li>Fio a fio / Volumes</li>
+                    <li>Fio a Fio / Volumes</li>
                 </ul>
-
             </Principal>
 
             <Apresenta>
                 <p>
-                    Seja bem-vinda ao universo encantador dos cílios! Aqui, você encontrará uma profissional dedicada,
-                    apaixonada por realçar a beleza e elevar a autoestima de cada cliente. Sou a Michele Crepaldi, uma extencionista de
-                    cílios especializada em Lash Design, e estou
-                    comprometida em oferecer resultados deslumbrantes e uma experiência única a todos que cruzam o meu caminho.
+                    Seja bem-vinda ao universo encantador dos cílios! Aqui, você
+                    encontrará uma profissional dedicada, apaixonada por realçar a
+                    beleza e elevar a autoestima de cada cliente. Sou a Michele Crepaldi,
+                    uma extensionista de cílios especializada em Lash Design, e estou
+                    comprometida em oferecer resultados deslumbrantes e uma experiência
+                    única a todos que cruzam o meu caminho.
                     <br />
-                    Agende seu horário hoje mesmo e permita-me transformar seus olhares em verdadeiras obras de arte!
+                    Agende seu horário hoje mesmo e permita-me transformar seus olhares
+                    em verdadeiras obras de arte!
                     <br />
                     <br />
-                    Lembre-se: "A beleza começa no momento em que você decide ser você mesma!" - Coco Chanel
-
+                    Lembre-se: "A beleza começa no momento em que você decide ser você
+                    mesma!" - Coco Chanel
                 </p>
-
             </Apresenta>
 
             <Container2>
@@ -113,45 +126,42 @@ const Main = () => {
                 </Text>
                 <Servico>
                     {Servicos.slice(startIndex, startIndex + 2).map((servico, index) => (
-                        <ServicoBox key={index}>
+                        <ServicoBox key={index} onClick={handleDivClick}>
                             <h1>{servico.title}</h1>
                             <p>{servico.duration}</p>
                             <h3>{servico.price}</h3>
-                            <button onClick={handleClick}>Agendar</button>
+                            <button>Agendar</button>
                         </ServicoBox>
                     ))}
                 </Servico>
 
                 <Boxbtn>
                     <button onClick={handlePrevious} disabled={startIndex === 0}>
-                    <i class="fa-solid fa-angles-left"></i>
+                        <i className="fa-solid fa-angles-left"></i>
                     </button>
                     <button
                         onClick={handleNext}
                         disabled={startIndex >= Servicos.length - 2}
                     >
-                        <i class="fa-solid fa-angles-right"></i>
+                        <i className="fa-solid fa-angles-right"></i>
                     </button>
                 </Boxbtn>
             </Container2>
             ;
 
-
-
-
             <div>
                 <Maps>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3644.979355985825!2d-46.422908625324595!3d-23.99650607772157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce1c3806954b61%3A0x4338f2322f1f44f4!2sAv.%20Marquesa%20de%20Santos%2C%20407%20-%20S%C3%ADtio%20do%20Campo%2C%20Praia%20Grande%20-%20SP%2C%2011725-050!5e0!3m2!1spt-BR!2sbr!4v1691089223908!5m2!1spt-BR!2sbr" width="600" height="450" loading="lazy" referrerpolicy="no-referrer-when-downgrade" />
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3644.979355985825!2d-46.422908625324595!3d-23.99650607772157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce1c3806954b61%3A0x4338f2322f1f44f4!2sAv.%20Marquesa%20de%20Santos%2C%20407%20-%20S%C3%ADtio%20do%20Campo%2C%20Praia%20Grande%20-%20SP%2C%2011725-050!5e0!3m2!1spt-BR!2sbr!4v1691089223908!5m2!1spt-BR!2sbr"
+                        width="600"
+                        height="450"
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                    />
                 </Maps>
-
             </div>
-
-
-
-
-
         </Container>
-    )
-}
+    );
+};
 
-export { Main }
+export { Main };

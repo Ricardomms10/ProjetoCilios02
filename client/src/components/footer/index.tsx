@@ -1,3 +1,4 @@
+import React from "react"
 import { Container, Contato, Links,  } from "./styled"
 
 
@@ -13,7 +14,7 @@ const Footer = () => {
 
                 <ul>
                     <li>
-                        <i class="fa-solid fa-location-dot"></i>
+                        <i className="fa-solid fa-location-dot"></i>
 
                         <h3>Endereço:
                             <br />
@@ -22,7 +23,7 @@ const Footer = () => {
                     </li>
 
                     <li>
-                        <i class="fa-solid fa-phone"></i>
+                        <i className="fa-solid fa-phone"></i>
 
                         <h3>Celular: <br />
                             (13) 98874-2228
@@ -38,9 +39,9 @@ const Footer = () => {
                 <h2>Links</h2>
 
                 <div>
-                    <i class="fa-brands fa-whatsapp"></i>
+                    <i className="fa-brands fa-whatsapp"></i>
 
-                    <i class="fa-brands fa-instagram"></i>
+                    <i className="fa-brands fa-instagram"></i>
                 </div>
 
             </Links>
