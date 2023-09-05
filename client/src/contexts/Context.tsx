@@ -14,7 +14,7 @@ export const AuthProvider = ({ children }: { children: JSX.Element }) => {
             const storageData = localStorage.getItem("authUser");
             console.log(storageData)
             if (storageData) {
-                //    setUser(JSON.parse(storageData));
+                setUser(JSON.parse(storageData));
             }
         };
         validateUser();
@@ -22,13 +22,10 @@ export const AuthProvider = ({ children }: { children: JSX.Element }) => {
 
     const signin = async (email: string, password: string) => {
         const data = await api.signin(email, password);
-        console.log(data, "caiu no papin")
-        if (data.userData) {
-
-            setUser(data.userData); // Defina o usuário como data.user quando o login for bem-sucedido
-
+        console.log(data.user, "caiu no papin")
+        if (data.user) {
+            setUser(data.user); // Defina o usuário como data.user quando o login for bem-sucedido
             // Salvar no localStorage quando o usuário faz login com sucesso
-
             localStorage.setItem("authUser", JSON.stringify(data.user));
             return true;
         }

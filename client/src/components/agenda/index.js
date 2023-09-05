@@ -1,7 +1,8 @@
-import { HeadRegister } from '../headregister/Index';
+
 import { useParams } from 'react-router-dom';
 import { Container, Horario, Calendario, Confirma, DivBtn } from "./styled";
 import React, { useState} from 'react';
+import { Head } from '../head';
 
 
 const Agenda = () => {
@@ -35,7 +36,7 @@ const Agenda = () => {
 
     return (
         <>
-            <HeadRegister />
+            < Head/>
             <Container>
                 <h4>Serviço:</h4>
                 <br />

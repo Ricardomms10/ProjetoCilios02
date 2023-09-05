@@ -3,7 +3,8 @@ import {
     Confirmacao,
     Cadastro,
     ConBtn,
-    BtnCad,
+    ErrorWrapper
+
 } from "../register/styled";
 import * as yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
@@ -42,7 +43,7 @@ const Register = () => {
                 console.log(loginResult, "tome");
                 if (loginResult.isAuthenticated) {
                     var userapiJSON = JSON.stringify(loginResult.userData);
-                    localStorage.setItem("authUser",userapiJSON);
+                    localStorage.setItem("authUser", userapiJSON);
                     // Autenticação bem-sucedida, redirecione ou faça outras ações.
                     navigate(`/`);
                 } else {
@@ -92,20 +93,24 @@ const Register = () => {
                         <div>
                             <i className="fa-solid fa-user"></i>
                             <Field name="email" type="email" placeholder="E-mail" className="input" />
-                            <ErrorMessage
-                                component="span"
-                                name="email"
-                                className="form-error"
-                            />
+                            <ErrorWrapper>
+                                <ErrorMessage
+                                    component="span"
+                                    name="email"
+                                    className="form-error"
+                                />
+                            </ErrorWrapper>
                         </div>
                         <div>
                             <i className="fa-solid fa-key"></i>
                             <Field name="password" type="password" placeholder="Senha" className="input" />
-                            <ErrorMessage
-                                component="span"
-                                name="password"
-                                className="form-error"
-                            />
+                            <ErrorWrapper>
+                                <ErrorMessage
+                                    component="span"
+                                    name="password"
+                                    className="form-error"
+                                />
+                            </ErrorWrapper>
                         </div>
                         <ConBtn>
                             <a href="os">Esqueci a senha</a>
@@ -131,51 +136,61 @@ const Register = () => {
                         <div>
                             <i className="fa-solid fa-user"></i>
                             <Field name="nome" placeholder="Nome Completo" className="input" />
-                            <ErrorMessage
-                                component="span"
-                                name="nome"
-                                className="form-error"
-                            />
+                            <ErrorWrapper>
+                                <ErrorMessage
+                                    component="span"
+                                    name="nome"
+                                    className="form-error"
+                                />
+                            </ErrorWrapper>
                         </div>
                         <div>
                             <i className="fa-solid fa-tablet-screen-button"></i>
                             <Field name="telefone" placeholder="Telefone" className="input" />
-                            <ErrorMessage
-                                component="span"
-                                name="telefone"
-                                className="form-error"
-                            />
+                            <ErrorWrapper>
+                                <ErrorMessage
+                                    component="span"
+                                    name="telefone"
+                                    className="form-error"
+                                />
+                            </ErrorWrapper>
                         </div>
                         <div>
                             <i className="fa-solid fa-user"></i>
                             <Field name="email" type="email" placeholder="E-mail" className="input" />
-                            <ErrorMessage
-                                component="span"
-                                name="email"
-                                className="form-error"
-                            />
+                            <ErrorWrapper>
+                                <ErrorMessage
+                                    component="span"
+                                    name="email"
+                                    className="form-error"
+                                />
+                            </ErrorWrapper>
                         </div>
                         <div>
                             <i className="fa-solid fa-key"></i>
                             <Field name="password" type="password" placeholder="Senha" className="input" />
-                            <ErrorMessage
-                                component="span"
-                                name="password"
-                                className="form-error"
-                            />
+                            <ErrorWrapper>
+                                <ErrorMessage
+                                    component="span"
+                                    name="password"
+                                    className="form-error"
+                                />
+                            </ErrorWrapper>
                         </div>
                         <div>
                             <i className="fa-solid fa-rotate-right"></i>
                             <Field name="confirmPassword" type="password" placeholder="Confirme sua Senha" className="input" />
-                            <ErrorMessage
-                                component="span"
-                                name="confirmPassword"
-                                className="form-error"
-                            />
+                            <ErrorWrapper>
+                                <ErrorMessage
+                                    component="span"
+                                    name="confirmPassword"
+                                    className="form-error"
+                                />
+                            </ErrorWrapper>
                         </div>
-                        <BtnCad>
+                        
                             <button type="submit">Cadastrar</button>
-                        </BtnCad>
+                        
                     </Form>
                 </Formik>
             </Cadastro>

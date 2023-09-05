@@ -19,6 +19,16 @@ img{
     width: 100px;
 }
 
+span{
+    padding:10px;
+    border-radius: 30px;
+    font-family: 'Courgette', cursive;
+    font-family: 'Play', sans-serif;
+    font-size:25px;
+    font-weight: bold;
+    color:#e195a8;
+}
+
 a{
     padding:10px;
     border-radius: 30px;
