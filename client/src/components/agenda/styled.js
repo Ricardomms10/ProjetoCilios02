@@ -169,3 +169,31 @@ button{
 }
 
 `
+
+export const MessagemConf = styled.div`
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.5);
+display: flex;
+align-items: center;
+justify-content: center;
+z-index: 1000;
+ 
+    div{
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    max-width: 400px; 
+    text-align: center;
+    
+     p{ 
+      maring-top:5px;
+      font-size:20px;
+      font-weight: bold;
+     }
+ }
+`

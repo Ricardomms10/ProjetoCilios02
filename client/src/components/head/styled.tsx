@@ -13,6 +13,7 @@ background-color:#FFF;
 
 
 
+
 img{
     flex:1
     height:100px ;
@@ -27,6 +28,21 @@ span{
     font-size:25px;
     font-weight: bold;
     color:#e195a8;
+
+    button{
+        padding: 9px;
+        border: none;
+        font-weight: bold;
+        font-size: 20px;
+        background-color: #FFF;
+        color: #e195a9;
+    
+    
+        &:hover {
+          cursor: pointer;
+          color: red;
+        }
+    }
 }
 
 a{
@@ -44,4 +60,17 @@ a{
       cursor: pointer;
     }
 }
+
+@media (max-width: 900px) {
+    span{
+        font-size:15px;
+
+        button{
+            font-size:15px;
+        }
+    }
+
+    
+  }
 `
+

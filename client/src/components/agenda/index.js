@@ -1,16 +1,22 @@
 
 import { useParams } from 'react-router-dom';
-import { Container, Horario, Calendario, Confirma, DivBtn } from "./styled";
-import React, { useState} from 'react';
+import { Container, Horario, Calendario, Confirma, DivBtn, MessagemConf } from "./styled";
+import React, { useState, useContext } from 'react';
 import { Head } from '../head';
+import { TokenContext } from '../../contexts/Token';
+import emailjs from '@emailjs/browser'
 
 
 const Agenda = () => {
     const { trabalho, preco } = useParams();
     const [selectedDate, setSelectedDate] = useState('');
     const [showConfirma, setShowConfirma] = useState(false);
+    const [horarioSelecionado, setHorarioSelecionado] = useState('');
+    const [confirmationMessage, setConfirmationMessage] = useState('');
+    const auth = useContext(TokenContext);
 
     const handleTimeSelection = (time) => {
+        setHorarioSelecionado(time);
         setShowConfirma(true);
     };
 
@@ -30,13 +36,37 @@ const Agenda = () => {
         return `${day}-${month}-${year}`;
     };
 
+
     const confirmarHorario = () => {
-        alert("Horário confirmado!");
+        // Atualiza a mensagem de confirmação
+        setConfirmationMessage(`Seu horário foi confirmado com sucesso.`);
+
+        // Esconde a confirmação após um atraso de 2 segundos
+        setTimeout(() => {
+            setShowConfirma(false); // Define showConfirma como false para removê-lo da tela
+            setConfirmationMessage('');
+        }, 3000);
+
+        const templateparams = {
+            from_name: auth.user.nome,
+            trabalho: trabalho,
+            data: formatDate(selectedDate),
+            horario:horarioSelecionado,
+            telefone:auth.user.telefone
+        }
+
+        emailjs.send("service_zsesqi4", "template_1kglvay", templateparams, "5oqBrnbndvRwAVxSx")
+        .then((response) =>{
+            console.log("EMAIL ENVIADO", response.status, response.text)
+        }, (err) => {
+            console.log("ERRO: ", err)
+        })
     };
+
 
     return (
         <>
-            < Head/>
+            < Head />
             <Container>
                 <h4>Serviço:</h4>
                 <br />
@@ -85,7 +115,17 @@ const Agenda = () => {
                         </DivBtn>
                     </div>
                 </Confirma>
-            )}
+            )};
+
+            {confirmationMessage && (
+                <MessagemConf>
+                    <div>
+                        <p>{confirmationMessage}</p>
+                    </div>
+                </MessagemConf>
+            )
+
+            }
         </>
     );
 }
