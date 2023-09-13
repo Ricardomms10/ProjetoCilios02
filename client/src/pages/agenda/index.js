@@ -2,7 +2,7 @@
 import { useParams } from 'react-router-dom';
 import { Container, Horario, Calendario, Confirma, DivBtn, MessagemConf } from "./styled";
 import React, { useState, useContext } from 'react';
-import { Head } from '../head';
+import { Head } from '../../components/head/index';
 import { TokenContext } from '../../contexts/Token';
 import emailjs from '@emailjs/browser'
 

@@ -5,13 +5,13 @@ import {
     ConBtn,
     ErrorWrapper
 
-} from "../register/styled";
+} from "./styled";
 import * as yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import Axios from "axios";
 import { useNavigate } from "react-router-dom";
 import React from "react";
-import { useApi } from "../../hooks/userApi";
+import { useApi } from "../../server/userApi";
 
 
 const Register = () => {
@@ -188,9 +188,9 @@ const Register = () => {
                                 />
                             </ErrorWrapper>
                         </div>
-                        
-                            <button type="submit">Cadastrar</button>
-                        
+
+                        <button type="submit">Cadastrar</button>
+
                     </Form>
                 </Formik>
             </Cadastro>

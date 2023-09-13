@@ -1,4 +1,4 @@
-import { Register } from "../register"
+import { Register } from "../../pages/register"
 import { Footer } from "../footer"
 import React from "react"
 

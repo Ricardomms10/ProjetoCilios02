@@ -1,6 +1,6 @@
 import './App.css';
-import { AppRoutes } from './contain';
-import { GlobalStyles } from "../src/GlobalStyled/GlobalStyled"
+import { AppRoutes } from './routes/appRoutes'
+import { GlobalStyles } from "./styles/GlobalStyled/GlobalStyled"
 import { AuthProvider } from './contexts/Context';
 
 

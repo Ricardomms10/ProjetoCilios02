@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { User } from "../types/User";
-import { useApi } from "../hooks/userApi";
+import { useApi } from "../server/userApi";
 import { TokenContext } from "./Token";
 
 

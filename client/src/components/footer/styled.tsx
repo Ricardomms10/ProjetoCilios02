@@ -2,17 +2,14 @@ import { styled } from "styled-components";
 
 
 export const Container = styled.div`
- display:flex;
- justify-content: space-between;
- padding:16px 48px;
- background-color:#000;
- 
-
+display:flex;
+justify-content: space-between;
+padding:16px 48px;
+background-color:#000;
 
 `
 
 export const Contato = styled.div`
-
 
 h2{
     color:#FFF;
@@ -48,14 +45,13 @@ display:flex;
 flex-direction:column;
 align-items: center;
 
-
 h2{
     font-size:20px;
     color:#FFF;
 }
 
 div{
- 
+
     
     i{
         color:#FFF;
@@ -72,7 +68,6 @@ div{
             cursor:pointer
         }
     }
-
 }
 `
 
@@ -81,5 +76,4 @@ export const Marca = styled.div`
 p{
     color:#FFF;
 }
-
 `

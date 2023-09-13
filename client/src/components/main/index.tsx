@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/iframe-has-title */
-import Olho from "../../images/olho.png";
+import Olho from "../../assets/images/olho.png";
 import {
     Boxbtn,
     ServicoBox,
@@ -60,11 +60,9 @@ const Main = () => {
         const divElement = event.currentTarget;
         const trabalhoElement = divElement.querySelector("h1");
         const precoElement = divElement.querySelector("h3");
-
         if (trabalhoElement && precoElement) {
             const trabalho = trabalhoElement.textContent;
             const preco = precoElement.textContent;
-
             navigate(`/agenda/${trabalho}/${preco}`);
         }
     };
