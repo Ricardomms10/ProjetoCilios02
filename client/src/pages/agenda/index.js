@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { Container, Horario, Calendario, Confirma, DivBtn, MessagemConf } from "./styled";
 import React, { useState, useContext } from 'react';
 import { Head } from '../../components/head/index';
-import { TokenContext } from '../../contexts/Token';
+import { TokenContext } from '../../hooks/Token';
 import emailjs from '@emailjs/browser'
 
 
@@ -51,16 +51,16 @@ const Agenda = () => {
             from_name: auth.user.nome,
             trabalho: trabalho,
             data: formatDate(selectedDate),
-            horario:horarioSelecionado,
-            telefone:auth.user.telefone
+            horario: horarioSelecionado,
+            telefone: auth.user.telefone
         }
 
         emailjs.send("service_zsesqi4", "template_1kglvay", templateparams, "5oqBrnbndvRwAVxSx")
-        .then((response) =>{
-            console.log("EMAIL ENVIADO", response.status, response.text)
-        }, (err) => {
-            console.log("ERRO: ", err)
-        })
+            .then((response) => {
+                console.log("EMAIL ENVIADO", response.status, response.text)
+            }, (err) => {
+                console.log("ERRO: ", err)
+            })
     };
 
 

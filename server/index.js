@@ -79,17 +79,21 @@ app.post("/login", (req, res) => {
 });
 
 
-app.get("/verificar-autenticacao", (req, res) => {
+app.post("/logout", (req, res) => {
     if (req.session.isAuthenticated) {
-        // O usuário está autenticado
-        res.json({ isAuthenticated: true });
+        req.session.destroy((err) => {
+            if (err) {
+                console.error("Erro ao fazer logout:", err);
+                res.status(500).send({ error: "Erro interno no servidor ao fazer logout" });
+            } else {
+                res.status(200).send({ isAuthenticated: false, msg: "Logout bem-sucedido" });
+            }
+        });
     } else {
-        // O usuário não está autenticado
-        res.json({ isAuthenticated: false });
+        res.status(401).send({ isAuthenticated: false, msg: "Usuário não autenticado" });
+        console.log("aqui foi")
     }
 });
-
-
 
 app.listen(3001, () => {
     console.log("Rodando na porta 3001")

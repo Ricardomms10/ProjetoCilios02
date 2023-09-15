@@ -1,7 +1,5 @@
 import { styled } from "styled-components";
 
-
-
 export const Contend = styled.div`
 display:flex;
 align-items: center;
@@ -10,9 +8,6 @@ top:0;
 padding:15px;
 box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 background-color:#FFF;
-
-
-
 
 img{
     flex:1
@@ -39,8 +34,8 @@ span{
     
     
         &:hover {
-          cursor: pointer;
-          color: red;
+            cursor: pointer;
+            color: red;
         }
     }
 }
@@ -56,8 +51,8 @@ a{
     background-color:#e195a8;
 
     &:hover{
-      background-color:#e195e6;
-      cursor: pointer;
+        background-color:#e195e6;
+        cursor: pointer;
     }
 }
 
@@ -69,8 +64,6 @@ a{
             font-size:15px;
         }
     }
-
-    
-  }
+}
 `
 

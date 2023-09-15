@@ -3,8 +3,6 @@ import { User } from "../types/User";
 import { useApi } from "../server/userApi";
 import { TokenContext } from "./Token";
 
-
-
 export const AuthProvider = ({ children }: { children: JSX.Element }) => {
     const [user, setUser] = useState<User | null>(null);
     const api = useApi();
@@ -13,7 +11,7 @@ export const AuthProvider = ({ children }: { children: JSX.Element }) => {
         const validateUser = async () => {
             const storageData = localStorage.getItem("authUser");
             console.log(storageData)
-            if (storageData) {
+            if  (storageData) {
                 setUser(JSON.parse(storageData));
             }
         };
@@ -35,7 +33,6 @@ export const AuthProvider = ({ children }: { children: JSX.Element }) => {
     const signout = async () => {
         await api.logout();
         setUser(null);
-        // Remover os dados do usuário do localStorage quando o usuário faz logout
         localStorage.removeItem("authUser");
     };
 

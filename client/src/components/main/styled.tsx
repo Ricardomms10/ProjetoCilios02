@@ -1,21 +1,16 @@
 import styled from "styled-components"
 
-
 export const Container = styled.div`
 display:flex;
 flex-direction: column;
-
-
 `
 
 export const ImgOlho = styled.div`
-
 
 img{
     width: 100%;
     max-width: 100vw;
     height: auto;
-    
 }
 `
 
@@ -24,7 +19,6 @@ display:flex;
 flex-direction: column;
 align-items: center;
 margin:15px;
-
 
 span{
     display:flex;
@@ -55,9 +49,8 @@ ul{
     gap:40px;
     margin-top:30px;
     li{
-    
-       font-size:20px; 
-       font-family: 'Courgette', cursive;
+      font-size:20px; 
+      font-family: 'Courgette', cursive;
     }
 }
 
@@ -72,7 +65,6 @@ ul{
             top:40px;
         }
     }
-
 }
 `
 
@@ -80,15 +72,13 @@ export const Maps = styled.div`
 width:100%;
 height: 350px;
 
-   iframe{
-     width:100%;
-     height:100%;
+    iframe{
+      width:100%;
+      height:100%;
 }
-
 `
 export const Apresenta = styled.div`
 padding:20px 100px;
-
 
 p{
     line-height: 1.5;
@@ -103,12 +93,11 @@ p{
   }
 `
 
-
 export const Container2 = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-`;
+`
 
 export const Text = styled.div`
   display: flex;
@@ -130,21 +119,20 @@ export const Servico = styled.div`
 `;
 
 export const ServicoBox = styled.div`
-   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-   width: calc(50% - 10px);
-   padding: 10px;
-   width: 168px; 
-   height:  220px;
-   white-space: nowrap; 
-   overflow: hidden; 
-   text-overflow: ellipsis; 
-   display:flex;
-   flex-direction: column;
-   align-items: center;
-   position: relative;
-   background-color:#FFF;
-   border: solid 4px #e195a8;
-
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  width: calc(50% - 10px);
+  padding: 10px;
+  width: 168px; 
+  height:  220px;
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  background-color:#FFF;
+  border: solid 4px #e195a8;
 
   h1 {
     font-size: 15px;
@@ -181,12 +169,10 @@ export const ServicoBox = styled.div`
       background-color: #e195e6;
     }
   }
-`;
+`
 
 export const Boxbtn = styled.div`
 padding:10px; 
-
-
 
 button{
     margin:10px;
